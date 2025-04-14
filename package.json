@@ -14,7 +14,7 @@
     "rating"
   ],
   "author": "Tim Vermaelen",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
     "bootstrap-icons": "^1.11.3"
   },
