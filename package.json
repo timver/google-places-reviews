@@ -1,0 +1,27 @@
+{
+  "name": "poc-reviews",
+  "version": "1.0.0",
+  "description": "google reviews rating",
+  "main": "index.js",
+  "scripts": {
+    "start": "node server/index.js",
+    "dev": "nodemon server/index.js"
+  },
+  "keywords": [
+    "google",
+    "reviews",
+    "stars",
+    "rating"
+  ],
+  "author": "Tim Vermaelen",
+  "license": "ISC",
+  "dependencies": {
+    "bootstrap-icons": "^1.11.3"
+  },
+  "devDependencies": {
+    "axios": "^1.8.4",
+    "dotenv": "^16.5.0",
+    "express": "^5.1.0",
+    "nodemon": "^3.1.9"
+  }
+}

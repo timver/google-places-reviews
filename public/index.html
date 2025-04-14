@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>Google Reviews Demo</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css" integrity="sha512-jnSuA4Ss2PkkikSOLtYs8BlYIeeIK1h99ty4YfvRPAlzr377vr3CXDb7sb7eEEBYjDtcYj+AjBH3FLv5uSJuXg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.3/font/bootstrap-icons.min.css" integrity="sha512-dPXYcDub/aeb08c63jRq/k6GaKccl256JQy/AnOq7CAnEZ9FzSL9wSbcZkMp4R26vBsMLFYH4kQ67/bbV8XaCQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="./css/google-maps-reviews.css">
+    <script src="https://maps.googleapis.com/maps/api/js?libraries=places&loading=async&key=AIzaSyC9I5Uf2t4J5LY2Zuz9mWwdlngUQNQWGv4&callback=initMap"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.bundle.min.js" integrity="sha512-7Pi/otdlbbCR+LnW+F7PwFcSDJOuUJB3OxtEHbg4vSMvzvJjde4Po1v4BR9Gdc9aXNUNFVUY+SK51wWT8WF0Gg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="./js/src/google-maps-reviews.js" async></script>
+</head>
+<body>
+    <header>
+        <nav class="navbar bg-dark border-bottom border-body" data-bs-theme="dark">
+            <div class="container">
+                <div class="d-flex justify-content-between w-100">
+                    <a class="navbar-brand" href="#">
+                        <img src="./img/logo.svg" alt="NOVY" width="100" height="21">
+                    </a>
+                    <h4 class="text-white">POC: Google Reviews</h4>
+                    <select id="language" class="form-select w-auto">
+                        <option value="nl">nederlands</option>
+                        <option value="en">english</option>
+                        <option value="fr">français</option>
+                        <option value="de">deutsch</option>
+                        <option value="es">espagnol</option>
+                        <option value="it">italica</option>
+                    </select>
+                </div>
+            </div>
+          </nav>
+    </header>
+    <main class="py-5">
+        <div class="container-lg">
+            <div class="row">
+                <div class="col-4 me-auto">
+                    <div id="google-rating" class="google-rating"><!-- js rendered --></div>
+                </div>
+            </div>
+            <div id="google-reviews" class="google-reviews row row-cols-1 row-cols-md-3 row-cols-lg-4 g-4"><!-- js rendered --></div>
+            <div class="row py-3">
+                <div class="col">
+                    <div class="d-flex align-items-center justify-content-center d-none">
+                        <button id="load-more" class="btn btn-dark">Load More&hellip;</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer class="text-bg-dark py-3">
+        <div class="container-lg">
+            <small>&copy; 2025 Tim Vermaelen</small>
+        </div>
+    </footer>
+    <template id="place-rating-template">
+        <div class="card mb-3" style="max-width: 305px;">
+          <div class="card-body">
+            <h5 class="card-title d-flex align-items-center">
+                <!-- https://about.google/brand-resource-center/guidance/user-reviews/ -->
+                <img src="https://services.google.com/fh/files/misc/google_g_icon_download.png" alt="Google Logo" class="google-logo" width="40">
+                <span>Reviews</span>
+            </h5>
+            <p class="card-text">
+                <strong><span class="rating"></span></strong>
+                <span class="stars"></span>&nbsp;<small>(<span class="user-ratings-total text-muted"></span>)</small>
+            </p>
+          </div>
+        </div>
+    </template>
+    <template id="google-review-template">
+        <div class="col">
+          <div class="card h-100">
+            <div class="card-header d-flex align-items-center">
+              <img class="reviewer-photo rounded-circle me-2" width="40" height="40" alt="">
+              <div class="d-flex flex-column">
+                <h5 class="card-title h6 mb-0 reviewer-name">heading</h5>
+                <div class="text-warning review-stars"></div>
+              </div>
+              <small class="ms-auto text-muted review-date"></small>
+            </div>
+            <div class="card-body" style="max-height: 240px; overflow-y: auto;">
+              <p class="card-text review-text"></p>
+            </div>
+            <div class="card-footer d-flex justify-content-between align-items-center">
+                <small class="review-relative-date"></small>
+                <a href="#" class="review-url" target="_blank">to the review</a>
+            </div>
+          </div>
+        </div>
+      </template>
+      
+</body>
+</html>
